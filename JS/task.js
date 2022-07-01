@@ -8,6 +8,9 @@
 
 // The added task should be visible on the current tasks list and should display the task information.
 //create class , create object using that class
+
+
+// TASK - 6 -  Create a Class Using JavaScript and Add Tasks programmatically 
 let i = 0;
 class Task {
     constructor(name, description, assignee, dueDate, status) {
@@ -59,6 +62,8 @@ class TaskManager {
       
 
     }
+
+// TASK - 7 - Display Tasks
        displayTasks = () => {
       const taskListContainer = document.getElementById('taskList');
       

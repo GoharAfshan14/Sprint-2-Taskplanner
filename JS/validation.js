@@ -1,4 +1,4 @@
-//Form Validation
+// TASK - 4 - Task Form Inputs Validation
 let taskName1 = document.querySelector('#taskName');
 let assigneeName1 = document.querySelector('#assigneeName');
 let taskDescription1 = document.querySelector('#taskDescription');
@@ -20,7 +20,7 @@ errMsg4.style.color = "#FF0000";
 let errMsg5 = document.querySelector('#errMsgStatus');
 errMsg5.style.color = "#FF0000";
 
-
+//task validating input
 function validateInput() {
     let nameFlag = false
     let descriptionFlag = false;
@@ -122,7 +122,8 @@ function validateInput() {
 
 }
 console.log(validateInput);
-// display Current date
+
+// TASK - 5 - Displaying Date 
 let currentDate = new Date();
 let disDate = document.getElementById('currentDate');
 let day = currentDate.getDate();

@@ -1,8 +1,6 @@
+// TASK - 7 - Display Tasks
 const taskManager = new TaskManager();
 const btnSubmit = document.getElementById('submit_taskForm');
-
-const btnReset = document.getElementById('reset_taskForm');
-btnReset.addEventListener("click", resetTask);
 
 function addTask() {
   console.log('add task');
@@ -19,6 +17,9 @@ function addTask() {
 }
 btnSubmit.addEventListener("click", addTask);
 
+// This is for clearing the input field
+const btnReset = document.getElementById('reset_taskForm');
+btnReset.addEventListener("click", resetTask);
 
 function resetTask() {
   console.log('add task');
@@ -28,6 +29,8 @@ function resetTask() {
   document.getElementById('taskDueDate').value = "";
   document.getElementById('taskStatus').value = "";
 }
+
+// This is for deleting task 
 const btnDelete = document.getElementById('delete_taskForm');
 btnDelete.addEventListener("click", deleteTask);
 function deleteTask() {
