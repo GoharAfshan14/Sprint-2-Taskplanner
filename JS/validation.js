@@ -5,9 +5,8 @@ let taskDescription1 = document.querySelector('#taskDescription');
 let taskStatus1 = document.querySelector('#taskStatus');
 let taskDueDate1 = document.querySelector('#taskDueDate');
 let submit_taskForm1 = document.querySelector('#submit_taskForm');
-//let taskModal1 = document.querySelector('#taskModal');
 submit_taskForm1.addEventListener('click', validateInput);
-//taskModal1.addEventListener('change', validateInput);
+
 
 //error mmessages
 let errMsg1 = document.querySelector('#errMsgName');
@@ -119,16 +118,15 @@ function validateInput() {
         return  true;
       }
     
-
+ console.log(validateInput);
 
 }
-
+console.log(validateInput);
 // display Current date
 let currentDate = new Date();
 let disDate = document.getElementById('currentDate');
-//disDate.innerHTML = currentDate;
 let day = currentDate.getDate();
-//alert(day);
+
 // To display st, nd, rd, th for the day
 let rem = day % 10;
 let hint = " ";
@@ -141,12 +139,9 @@ if (rem === 1) {
 } else {
     hint = "th";
 }
-//let month = currentDate.getMonth() + 1;
+
 let month = currentDate.toLocaleString('default', { month: 'long' });
-//alert(month);
 let year = currentDate.getFullYear();
-//alert(year);
-//alert("Today is "+day+" of the month "+ month+" of the Year "+year);
 disDate.innerHTML = day + hint + ' ' + month + ' ' + year;
 
 

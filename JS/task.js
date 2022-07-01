@@ -7,7 +7,8 @@
 // incremented id. 
 
 // The added task should be visible on the current tasks list and should display the task information.
-
+//create class , create object using that class
+let i = 0;
 class Task {
     constructor(name, description, assignee, dueDate, status) {
         this._name = name;
@@ -52,18 +53,18 @@ class TaskManager {
     }
 
     addTask = (task) => {
-      if (validateInput){
+      console.log('testing',validateInput())
       task.id = this._taskId++;
       this._taskArray.push(task);
-      this.displayTasks();
-       }
+      
 
     }
        displayTasks = () => {
       const taskListContainer = document.getElementById('taskList');
-      for (let i = 0; i < this._taskArray.length; i++) {
+      
         const task = this._taskArray[i];
         // create HTML for task card
+        
         const cardContainer = document.createElement('div');
         cardContainer.className = "col-sm-6";
         cardContainer.innerHTML = `
@@ -80,9 +81,9 @@ class TaskManager {
             </div>
           </div>`;
         taskListContainer.appendChild(cardContainer);
+        i++;
       }
-    }
-  }
-//  let task = new Task("name", "desc", "assignee", "dueDate", "status");
-//  task.name = "";
+     
+     }
+  
 
