@@ -1,7 +1,8 @@
 const taskManager = new TaskManager();
 const btnSubmit = document.getElementById('submit_taskForm');
 
-
+const btnReset = document.getElementById('reset_taskForm');
+btnReset.addEventListener("click", resetTask);
 
 function addTask() {
   console.log('add task');
@@ -17,3 +18,27 @@ function addTask() {
   }
 }
 btnSubmit.addEventListener("click", addTask);
+
+
+function resetTask() {
+  console.log('add task');
+  document.getElementById('taskName').value = "";
+  document.getElementById('taskDescription').value = "";
+  document.getElementById('assigneeName').value = "";
+  document.getElementById('taskDueDate').value = "";
+  document.getElementById('taskStatus').value = "";
+}
+const btnDelete = document.getElementById('delete_taskForm');
+btnDelete.addEventListener("click", deleteTask);
+function deleteTask() {
+  console.log('delete task');
+  // document.getElementById('taskName').value = "";
+  // document.getElementById('taskDescription').value = "";
+  // document.getElementById('assigneeName').value = "";
+  // document.getElementById('taskDueDate').value = "";
+  // document.getElementById('taskStatus').value = "";
+}
+function myFunction() {
+  const element = document.getElementById("demo");
+  element.remove();
+}
