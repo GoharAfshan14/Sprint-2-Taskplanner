@@ -20,7 +20,7 @@ errMsg4.style.color = "#FF0000";
 let errMsg5 = document.querySelector('#errMsgStatus');
 errMsg5.style.color = "#FF0000";
 
-//task validating input
+//Task validating input
 function validateInput() {
     let nameFlag = false
     let descriptionFlag = false;
@@ -30,7 +30,6 @@ function validateInput() {
     if (taskName1.value.length === 0) {
         errMsg1.innerHTML = " Enter the Task Name";
         taskName1.focus();
-        console.log("line1")
         nameFlag = true;
 
     }
@@ -38,29 +37,25 @@ function validateInput() {
         errMsg1.innerHTML = "";
         errMsg1.innerHTML = "Name should not be less than 8 characters";
         taskName1.focus();
-        console.log("line2")
         nameFlag = true;
     }
 
     else  {
         errMsg1.innerHTML = "";
-        console.log("line3");
         nameFlag = false;
     }
     if (taskDescription1.value.length === 0) {
         errMsg2.innerHTML = "";
         errMsg2.innerHTML = "Enter the Task Description";
         taskDescription1.focus();
-        console.log("line4");
-         descriptionFlag = true;
+        descriptionFlag = true;
 
     }
     else if (taskDescription1.value.length < 16) {
         errMsg2.innerHTML = "";
         errMsg2.innerHTML = "Description should not be less than 15 characters";
         taskName1.focus();
-        console.log("line5")
-         descriptionFlag = true;
+        descriptionFlag = true;
     }
     else {
         errMsg2.innerHTML = "";
@@ -72,16 +67,14 @@ function validateInput() {
         errMsg3.innerHTML = "";
         errMsg3.innerHTML = "Enter the Assignee Name";
         assigneeName1.focus();
-        console.log("line6")
         assigneeFlag = true;
         
     }
 
     else if (assigneeName1.value.length < 9) {
         errMsg3.innerHTML = "";
-        errMsg3.innerHTML = "Name should not be less than 9 characters";
+        errMsg3.innerHTML = "Name should not be less than 8 characters";
         taskName1.focus();
-        console.log("line7")
         assigneeFlag =true;
     }
     else  {
@@ -92,7 +85,6 @@ function validateInput() {
         errMsg4.innerHTML = "";
         errMsg4.innerHTML = "Select Due-Date";
         taskDueDate1.focus();
-        console.log("line8")
         dueDateFlag = true;
     }
     else {
@@ -105,25 +97,20 @@ function validateInput() {
         errMsg5.innerHTML = "";
         errMsg5.innerHTML = "Select Task Status";
         taskStatus1.focus();
-        console.log("line9")
         statusFlag = true;
     }
     else {
 
         errMsg5.innerHTML = "";
-        console.log("line10");
         statusFlag = false;
     }
     if (!(nameFlag) && !(descriptionFlag) && !(assigneeFlag) && !(dueDateFlag) && !(statusFlag)){
         return  true;
       }
-    
- console.log(validateInput);
-
+  
 }
-console.log(validateInput);
 
-// TASK - 5 - Displaying Date 
+// TASK -5 - Displaying Date 
 let currentDate = new Date();
 let disDate = document.getElementById('currentDate');
 let day = currentDate.getDate();
@@ -131,7 +118,10 @@ let day = currentDate.getDate();
 // To display st, nd, rd, th for the day
 let rem = day % 10;
 let hint = " ";
-if (rem === 1) {
+if (day === 11 || day === 12 || day === 13){
+    hint = "th";
+}
+else if (rem === 1) {
     hint = "st";
 } else if (rem === 2) {
     hint = "nd";
@@ -161,4 +151,21 @@ today = yyyy + '-' + mm + '-' + dd;
 
 document.getElementById("taskDueDate").setAttribute("min", today);
 
+//  clearing the input fields on click of Reset Button
 
+const btnReset = document.getElementById('reset_taskForm');
+btnReset.addEventListener("click", resetTask);
+
+function resetTask() {
+  console.log('add task');
+  document.getElementById('taskName').value = "";
+  document.getElementById('taskDescription').value = "";
+  document.getElementById('assigneeName').value = "";
+  document.getElementById('taskDueDate').value = "";
+  document.getElementById('taskStatus').value = "";
+  errMsg1.innerHTML = "";
+  errMsg2.innerHTML = "";
+  errMsg3.innerHTML = "";
+  errMsg4.innerHTML = "";
+  errMsg5.innerHTML = "";
+}
