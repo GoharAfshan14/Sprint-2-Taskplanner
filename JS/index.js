@@ -22,20 +22,6 @@ btnSubmit.addEventListener("click", addTask);
 
 
 
-// // This is for deleting task 
-// const btnDelete = document.getElementById('delete_taskForm');
-// btnDelete.addEventListener("click", deleteTask);
-// function deleteTask() {
-//   console.log('delete task');
-//   // document.getElementById('taskName').value = "";
-//   // document.getElementById('taskDescription').value = "";
-//   // document.getElementById('assigneeName').value = "";
-//   // document.getElementById('taskDueDate').value = "";
-//   // document.getElementById('taskStatus').value = "";
-// }
-// function myFunction() {
-//   const element = document.getElementById("demo");
-//   element.remove();
-// }
+
 
 
