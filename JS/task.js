@@ -115,23 +115,26 @@ class TaskManager {
       
         const task = this._taskArray[i];
         let cardBgColor="";
-        //let doneBtnvisible="";
+        let doneBtnvisible="inline-block";
         
         let localStorageTasks = JSON.parse(localStorage.getItem("task"))|| [];
         localStorageTasks.forEach((task)=>{
                 
         if (task._status==="To Do"){
           cardBgColor = "yellow";
+          doneBtnvisible="inline-block";
         }
         if (task._status==="In Progress"){
           cardBgColor = "green";
+          doneBtnvisible="inline-block";
         }
         if (task._status==="Review"){
           cardBgColor = "red";
+          doneBtnvisible="inline-block";
         }
         if (task._status==="Done"){
           cardBgColor = "lightblue";
-          //doneBtnvisible = "";
+          doneBtnvisible = "none";
         }
 
         const cardContainer = document.createElement('div');
@@ -145,13 +148,13 @@ class TaskManager {
               <p class="card-text"> Assignee To: ${task._assignee}</p>
               <p class="card-text taskDueDate"> Due Date: ${task._dueDate}</p>
               <p class="card-text taskStatus" >Status :<span style="background-color:${cardBgColor}"> ${task._status}</span></p>
-              <button onclick="taskManager.deleteTask(${task._id})" class="btn btn-sm">Delete</button>
-              <button onclick="taskManager.editTask(${task._id})" class="btn btn-sm" >Done</button>
+              <span><button onclick="taskManager.deleteTask(${task._id})" class="btn btn-sm">Delete</button>
+              <button onclick="taskManager.editTask(${task._id})" class="btn btn-sm" style="display:${doneBtnvisible}">Done</button></span>
 
             </div>
           </div>`;
         taskListContainer.appendChild(cardContainer);
-        
+        // style="display:${doneBtnvisible}"
       });
 
         
