@@ -133,7 +133,7 @@ else if (rem === 1) {
 
 let month = currentDate.toLocaleString('default', { month: 'long' });
 let year = currentDate.getFullYear();
-disDate.innerHTML = day + hint + ' ' + month + ' ' + year;
+disDate.innerHTML ='Date: '+ day + hint + ' ' + month + ' ' + year;
 
 
 // Calendar date shows today's date to prompt user to select current or a future date
