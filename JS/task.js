@@ -47,6 +47,8 @@ class Task {
  
 }
 
+
+
 class TaskManager {
     constructor() {
       this._taskId = 0;
@@ -62,11 +64,11 @@ class TaskManager {
       return this._taskArray;
     }
 
+// Add a Task to Array and Local Storage
+
     addTask = (name,description, assignee, dueDate, status) => {
       console.log(name,description, assignee, dueDate, status)
-     
-     // console.log('testing',task)
-      if(validateInput()){
+    if(validateInput()){
         if (localStorage.getItem('task')){
           JSON.parse(localStorage.getItem('task')).forEach(element => {
             console.log(element)
@@ -87,15 +89,24 @@ class TaskManager {
       let isConfirm = confirm("Are you sure want to delete this record?")
       if (isConfirm){
         let index = this._taskArray.findIndex(task=>task._id===id);
-        alert('test delete'+index);
-
         if (index > -1){
           this._taskArray.splice(index,1);
         }
-        console.log(this._taskArray);
+        //console.log(this._taskArray);
         localStorage.setItem('task',JSON.stringify(this._taskArray));
         location.reload();
       }
+    }
+
+
+// Edit a Task status to Done
+
+    editTask(id){
+      let isConfirm = confirm("You cannot update the task details once the status is marked done! - Are you sure?")
+      let index = this._taskArray.findIndex(task=>task._id===id);
+      this._taskArray[index]._status = "Done";
+      localStorage.setItem('task',JSON.stringify(this._taskArray));
+      location.reload();
     }
 
 // TASK - 7 - Display Tasks
@@ -103,10 +114,26 @@ class TaskManager {
       const taskListContainer = document.getElementById('taskList');
       
         const task = this._taskArray[i];
-        // create HTML for task card
+        let cardBgColor="";
+        //let doneBtnvisible="";
         
         let localStorageTasks = JSON.parse(localStorage.getItem("task"))|| [];
         localStorageTasks.forEach((task)=>{
+                
+        if (task._status==="To Do"){
+          cardBgColor = "yellow";
+        }
+        if (task._status==="In Progress"){
+          cardBgColor = "green";
+        }
+        if (task._status==="Review"){
+          cardBgColor = "red";
+        }
+        if (task._status==="Done"){
+          cardBgColor = "lightblue";
+          //doneBtnvisible = "";
+        }
+
         const cardContainer = document.createElement('div');
         cardContainer.className = "col-sm-6";
         cardContainer.innerHTML = `
@@ -117,24 +144,16 @@ class TaskManager {
 					  	<p class="card-text">Description: ${task._description}</p>
               <p class="card-text"> Assignee To: ${task._assignee}</p>
               <p class="card-text taskDueDate"> Due Date: ${task._dueDate}</p>
-              <p class="card-text taskStatus">Status : ${task._status}</p>
+              <p class="card-text taskStatus" >Status :<span style="background-color:${cardBgColor}"> ${task._status}</span></p>
               <button onclick="taskManager.deleteTask(${task._id})" class="btn btn-sm">Delete</button>
-				  		<button type="button" class="btn btn-sm">Edit</a>
+              <button onclick="taskManager.editTask(${task._id})" class="btn btn-sm" >Done</button>
+
             </div>
           </div>`;
         taskListContainer.appendChild(cardContainer);
         
       });
 
-      
-      
+        
     }
-
-    
-    
- }
-
-
-
-  
-   
+  }
