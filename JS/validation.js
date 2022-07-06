@@ -170,3 +170,6 @@ function resetTask() {
   errMsg5.innerHTML = "";
   taskName1.focus();
 }
+
+
+
