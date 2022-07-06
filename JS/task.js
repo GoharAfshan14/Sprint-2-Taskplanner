@@ -1,6 +1,3 @@
-// 1. create class , create object using that class
-// 2. create method to store data as array
-// 3. create another method to display
 
 // When a new task is added with valid information, the data should be stored inside a JavaScript object.
 // Each task object should be added to and stored in an array variable. They should each have a unique 
@@ -121,15 +118,15 @@ class TaskManager {
         localStorageTasks.forEach((task)=>{
                 
         if (task._status==="To Do"){
-          cardBgColor = "yellow";
+          cardBgColor = "#E4CD05";
           doneBtnvisible="inline-block";
         }
         if (task._status==="In Progress"){
-          cardBgColor = "green";
+          cardBgColor = "mediumseagreen";
           doneBtnvisible="inline-block";
         }
         if (task._status==="Review"){
-          cardBgColor = "red";
+          cardBgColor = "tomato";
           doneBtnvisible="inline-block";
         }
         if (task._status==="Done"){
@@ -142,19 +139,21 @@ class TaskManager {
         cardContainer.innerHTML = `
           <div class="card">
             <div class="card-body">
-             <h5 class="card-title">Task Name:${task._name}</h5>
-             <h5 class = "card-text" > Id:${task._id}</h5>
-					  	<p class="card-text">Description: ${task._description}</p>
-              <p class="card-text"> Assignee To: ${task._assignee}</p>
-              <p class="card-text taskDueDate"> Due Date: ${task._dueDate}</p>
-              <p class="card-text taskStatus" >Status :<span style="background-color:${cardBgColor}"> ${task._status}</span></p>
-              <span><button onclick="taskManager.deleteTask(${task._id})" class="btn btn-sm">Delete</button>
-              <button onclick="taskManager.editTask(${task._id})" class="btn btn-sm" style="display:${doneBtnvisible}">Done</button></span>
-
+              <div class="card-header" style="background-color:${cardBgColor}">
+                <h5 class="card-title">Task Name:${task._name}</h5>
+              </div>
+                <h5 class = "card-text" > Id:${task._id}</h5>
+					  	  <p class="card-text">Description: ${task._description}</p>
+                <p class="card-text"> Assignee To: ${task._assignee}</p>
+                <p class="card-text taskDueDate"> Due Date: ${task._dueDate}</p>
+                <p class="card-text taskStatus" >Status :<span style="background-color:${cardBgColor}"> ${task._status}</span></p>
+                <button onclick="taskManager.deleteTask(${task._id})" class="btn btn-sm">Delete</button>
+                <button onclick="taskManager.editTask(${task._id})" class="btn btn-sm" style="display:${doneBtnvisible}">Done</button>
+            
             </div>
           </div>`;
         taskListContainer.appendChild(cardContainer);
-        // style="display:${doneBtnvisible}"
+    
       });
 
         
