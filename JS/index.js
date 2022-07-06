@@ -9,6 +9,7 @@ function addTask() {
   const assigneeName = document.getElementById('assigneeName').value;
   const taskDueDate = document.getElementById('taskDueDate').value;
   const taskStatus = document.getElementById('taskStatus').value;
+  
   if (validateInput()) {
     taskManager.addTask(taskName, taskDescription, assigneeName, taskDueDate, taskStatus); 
     console.log(taskManager.taskList);
