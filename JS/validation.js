@@ -28,14 +28,14 @@ function validateInput() {
     let dueDateFlag = false;
     let statusFlag = false;
     if (taskName1.value.length === 0) {
-        errMsg1.innerHTML = " Enter the Task Name";
+        errMsg1.innerHTML = "Enter the Task Name";
         taskName1.focus();
         nameFlag = true;
 
     }
     else if (taskName1.value.length < 9) {
         errMsg1.innerHTML = "";
-        errMsg1.innerHTML = "Name should not be less than 8 characters";
+        errMsg1.innerHTML = "Name should be more than 8 characters";
         taskName1.focus();
         nameFlag = true;
     }
@@ -53,7 +53,7 @@ function validateInput() {
     }
     else if (taskDescription1.value.length < 16) {
         errMsg2.innerHTML = "";
-        errMsg2.innerHTML = "Description should not be less than 15 characters";
+        errMsg2.innerHTML = "Description should be more than 15 characters";
         taskName1.focus();
         descriptionFlag = true;
     }
@@ -73,7 +73,7 @@ function validateInput() {
 
     else if (assigneeName1.value.length < 9) {
         errMsg3.innerHTML = "";
-        errMsg3.innerHTML = "Name should not be less than 8 characters";
+        errMsg3.innerHTML = "Name should be more than 8 characters";
         taskName1.focus();
         assigneeFlag =true;
     }
@@ -168,4 +168,5 @@ function resetTask() {
   errMsg3.innerHTML = "";
   errMsg4.innerHTML = "";
   errMsg5.innerHTML = "";
+  taskName1.focus();
 }
