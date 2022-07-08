@@ -14,13 +14,23 @@
   <body onload="taskManager.displayTasks()">
 	<!--Background jumbotron START -->
 	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1>Task List View</h1>
-			<p>Welcome to the team's Task Master site where all tasks are listed here</p>
-			<!-- Add New Task button trigger modal -->
-			<button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#taskModal">Add New Task</button><br><br>
-			<span id="currentDate"></span>
-		</div>
+		<div class="grid-container">
+			<div class="logo"><img src="./resources/img/logo.png" alt="logo"/></div>
+			<div class="add-task">
+				<br><br>
+				<h1>Task List View</h1><br>
+				<h4>Welcome to the team's Task Master site where all tasks are listed here</h4><br>
+				<!-- Add New Task button trigger modal -->
+			
+				<button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#taskModal">Add New Task</button><br><br>
+				<h4><span id="currentDate"></span></h4>
+				
+		  </div>
+		
+			
+		</div>	
+	</div>
+		
 	</div>
 	<!--Background jumbotron END -->
 	
@@ -122,6 +132,11 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<div class="footer-section">
+		<footer><em>&copy; Copyright - The Dream Team. All Rights Reserved.</em>
+		</footer>
+	</div>
+	
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
