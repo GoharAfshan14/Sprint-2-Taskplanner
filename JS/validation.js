@@ -28,12 +28,12 @@ function validateInput() {
     let dueDateFlag = false;
     let statusFlag = false;
 
-    if(taskName1.value.length === 0) {
+    if(taskName1.value.length === 0)  {
         errMsg1.innerHTML = "Enter the Task Name";
         taskName1.focus();
         nameFlag = true;
     }
-    else if (taskName1.value.length < 9) {
+    else if ((taskName1.value.length < 9) || (!isNaN(taskName1.value))) {
         errMsg1.innerHTML = "";
         errMsg1.innerHTML = "Name should be more than 8 characters";
         taskName1.focus();
@@ -51,7 +51,7 @@ function validateInput() {
         descriptionFlag = true;
 
     }
-    else if (taskDescription1.value.length < 16) {
+    else if ((taskDescription1.value.length < 16) || (!isNaN(taskDescription1.value))) {
         errMsg2.innerHTML = "";
         errMsg2.innerHTML = "Description should be more than 15 characters";
         taskDescription1.focus();
@@ -71,7 +71,7 @@ function validateInput() {
         
     }
 
-    else if (assigneeName1.value.length < 9) {
+    else if ((assigneeName1.value.length < 9) || (!isNaN(assigneeName1.value))){
         errMsg3.innerHTML = "";
         errMsg3.innerHTML = "Name should be more than 8 characters";
         assigneeName1.focus();
